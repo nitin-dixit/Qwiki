@@ -7,7 +7,12 @@
     "build": "bun --bun next build",
     "start": "bun --bun next start",
     "lint": "biome check",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "typecheck": "tsc --noEmit",
+    "db:migrate": "drizzle-kit migrate",
+    "db:generate": "drizzle-kit generate",
+    "db:push": "drizzle-kit push",
+    "db:seed": "tsx src/db/seed.ts"
   },
   "dependencies": {
     "next": "16.1.0",
