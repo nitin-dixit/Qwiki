@@ -1,5 +1,5 @@
 {
-  "name": "wikimasters",
+  "name": "qwiki",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -20,6 +20,7 @@
     "dotenv": "^17.2.3",
     "drizzle-orm": "^0.45.1",
     "drizzle-seed": "^0.3.1",
+    "@stackframe/stack": "^2.8.56",
     "next": "16.1.0",
     "react": "19.2.3",
     "react-dom": "19.2.3"
