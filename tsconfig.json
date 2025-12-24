@@ -28,11 +28,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "**/*.mts",
-    "src/app/server-rendered-page/page.tsx"
-=======
     "**/*.mts"
->>>>>>> 34869cd (Initial commit from Create Next App)
   ],
   "exclude": ["node_modules"]
 }
