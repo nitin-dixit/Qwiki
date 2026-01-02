@@ -19,7 +19,7 @@ export const NavBar = async () => {
             href={"/"}
             className="font-bold text-xl tracking-tight text-gray-900"
           >
-            WikiMasters
+            Qwiki
           </Link>
         </div>
         <NavigationMenu>
@@ -37,7 +37,7 @@ export const NavBar = async () => {
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <Button asChild>
-                    <Link href={"/handler e/sign-up"}>Sign Up</Link>
+                    <Link href={"/handler/sign-up"}>Sign Up</Link>
                   </Button>
                 </NavigationMenuItem>
               </>
