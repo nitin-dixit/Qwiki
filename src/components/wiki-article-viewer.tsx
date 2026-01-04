@@ -50,7 +50,9 @@ export default function WikiArticleViewer({
           Home
         </Link>
         <ChevronRight className="h-4 w-4" />
-        <span className="text-stone-800 dark:text-stone-100 font-medium">{article.title}</span>
+        <span className="text-stone-800 dark:text-stone-100 font-medium">
+          {article.title}
+        </span>
       </nav>
 
       {/* Article Header */}
@@ -71,23 +73,28 @@ export default function WikiArticleViewer({
               <span>{formatDate(article.createdAt)}</span>
             </div>
             <div className="flex items-center">
-              <Badge variant="secondary" className="dark:bg-stone-700 dark:text-stone-200">Article</Badge>
+              <Badge
+                variant="secondary"
+                className="bg-amber-100 dark:bg-stone-700 dark:text-stone-200"
+              >
+                Article
+              </Badge>
             </div>
           </div>
         </div>
 
         {/* Edit Button - Only shown if user has edit permissions */}
-        {canEdit && (
+        {/* {canEdit && (
           <div className="ml-4 flex items-center gap-2">
             <Link href={`/wiki/edit/${article.id}`} className="cursor-pointer">
               <Button variant="outline" className="cursor-pointer">
                 <Edit className="h-4 w-4 mr-2" />
                 Edit Article
               </Button>
-            </Link>
+            </Link> */}
 
-            {/* Delete form calls the server action wrapper */}
-            <form action={deleteArticleForm}>
+        {/* Delete form calls the server action wrapper */}
+        {/* <form action={deleteArticleForm}>
               <input type="hidden" name="id" value={String(article.id)} />
               <Button
                 type="submit"
@@ -99,7 +106,7 @@ export default function WikiArticleViewer({
               </Button>
             </form>
           </div>
-        )}
+        )} */}
       </div>
 
       {/* Article Content */}
@@ -142,7 +149,9 @@ export default function WikiArticleViewer({
                 ),
                 // Customize paragraph styles
                 p: ({ children }) => (
-                  <p className="mb-4 text-stone-700 dark:text-stone-200 leading-7">{children}</p>
+                  <p className="mb-4 text-stone-700 dark:text-stone-200 leading-7">
+                    {children}
+                  </p>
                 ),
                 // Customize list styles
                 ul: ({ children }) => (
@@ -156,7 +165,9 @@ export default function WikiArticleViewer({
                   </ol>
                 ),
                 li: ({ children }) => (
-                  <li className="mb-1 text-stone-700 dark:text-stone-200">{children}</li>
+                  <li className="mb-1 text-stone-700 dark:text-stone-200">
+                    {children}
+                  </li>
                 ),
                 // Customize code styles
                 code: ({ children, className }) => {
@@ -234,7 +245,7 @@ export default function WikiArticleViewer({
               <input type="hidden" name="id" value={String(article.id)} />
               <Button
                 type="submit"
-                variant="destructive"
+                variant="outline"
                 className="cursor-pointer"
               >
                 <Trash className="h-4 w-4 mr-2" />
