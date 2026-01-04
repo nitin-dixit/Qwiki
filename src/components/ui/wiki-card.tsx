@@ -24,22 +24,24 @@ export function WikiCard({
   href,
 }: WikiCardProps) {
   return (
-    <Card>
+    <Card className="bg-white dark:bg-stone-900 rounded-xl shadow-sm border-0 hover:shadow-md transition-shadow">
       <CardHeader className="pb-2">
-        <div className="flex items-center gap-2 text-xs text-muted-foreground">
+        <div className="flex items-center gap-2 text-xs text-stone-500 dark:text-stone-400">
           <span>{author}</span>
           <span>•</span>
           <span>{date}</span>
         </div>
-        <CardTitle className="text-lg">{title}</CardTitle>
+        <CardTitle className="text-xl text-stone-800 dark:text-stone-100 font-serif">
+          {title}
+        </CardTitle>
       </CardHeader>
       <CardContent className="py-0">
-        <CardDescription>{summary}</CardDescription>
+        <CardDescription className="text-stone-500 dark:text-stone-400 leading-relaxed">{summary}</CardDescription>
       </CardContent>
-      <CardFooter className="pt-2">
+      <CardFooter className="pt-4">
         <Link
           href={href}
-          className="text-blue-600 hover:underline text-sm font-medium w-fit"
+          className="text-stone-800 dark:text-stone-200 hover:underline text-sm font-medium"
         >
           Read article &rarr;
         </Link>

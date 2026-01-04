@@ -41,16 +41,16 @@ export default function WikiArticleViewer({
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
       {/* Breadcrumb Navigation */}
-      <nav className="flex items-center space-x-2 text-sm text-muted-foreground mb-6">
+      <nav className="flex items-center space-x-2 text-sm text-stone-500 dark:text-stone-400 mb-6">
         <Link
           href="/"
-          className="flex items-center hover:text-foreground transition-colors"
+          className="flex items-center hover:text-stone-800 dark:hover:text-stone-200 transition-colors"
         >
           <Home className="h-4 w-4 mr-1" />
           Home
         </Link>
         <ChevronRight className="h-4 w-4" />
-        <span className="text-foreground font-medium">{article.title}</span>
+        <span className="text-stone-800 dark:text-stone-100 font-medium">{article.title}</span>
       </nav>
 
       {/* Article Header */}
@@ -61,7 +61,7 @@ export default function WikiArticleViewer({
           </h1>
 
           {/* Article Metadata */}
-          <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+          <div className="flex flex-wrap items-center gap-4 text-sm text-stone-500 dark:text-stone-400">
             <div className="flex items-center">
               <User className="h-4 w-4 mr-1" />
               <span>By {article.author ?? "Unknown"}</span>
@@ -71,7 +71,7 @@ export default function WikiArticleViewer({
               <span>{formatDate(article.createdAt)}</span>
             </div>
             <div className="flex items-center">
-              <Badge variant="secondary">Article</Badge>
+              <Badge variant="secondary" className="dark:bg-stone-700 dark:text-stone-200">Article</Badge>
             </div>
           </div>
         </div>
@@ -126,43 +126,43 @@ export default function WikiArticleViewer({
               components={{
                 // Customize heading styles
                 h1: ({ children }) => (
-                  <h1 className="text-3xl font-bold mt-8 mb-4 text-foreground">
+                  <h1 className="text-3xl font-bold mt-8 mb-4 text-stone-800 dark:text-stone-100">
                     {children}
                   </h1>
                 ),
                 h2: ({ children }) => (
-                  <h2 className="text-2xl font-semibold mt-6 mb-3 text-foreground">
+                  <h2 className="text-2xl font-semibold mt-6 mb-3 text-stone-800 dark:text-stone-100">
                     {children}
                   </h2>
                 ),
                 h3: ({ children }) => (
-                  <h3 className="text-xl font-semibold mt-4 mb-2 text-foreground">
+                  <h3 className="text-xl font-semibold mt-4 mb-2 text-stone-800 dark:text-stone-100">
                     {children}
                   </h3>
                 ),
                 // Customize paragraph styles
                 p: ({ children }) => (
-                  <p className="mb-4 text-foreground leading-7">{children}</p>
+                  <p className="mb-4 text-stone-700 dark:text-stone-200 leading-7">{children}</p>
                 ),
                 // Customize list styles
                 ul: ({ children }) => (
-                  <ul className="mb-4 ml-6 list-disc text-foreground">
+                  <ul className="mb-4 ml-6 list-disc text-stone-700 dark:text-stone-200">
                     {children}
                   </ul>
                 ),
                 ol: ({ children }) => (
-                  <ol className="mb-4 ml-6 list-decimal text-foreground">
+                  <ol className="mb-4 ml-6 list-decimal text-stone-700 dark:text-stone-200">
                     {children}
                   </ol>
                 ),
                 li: ({ children }) => (
-                  <li className="mb-1 text-foreground">{children}</li>
+                  <li className="mb-1 text-stone-700 dark:text-stone-200">{children}</li>
                 ),
                 // Customize code styles
                 code: ({ children, className }) => {
                   const isInline = !className;
                   return isInline ? (
-                    <code className="bg-muted px-1.5 py-0.5 rounded text-sm font-mono text-foreground">
+                    <code className="bg-stone-200 dark:bg-stone-700 px-1.5 py-0.5 rounded text-sm font-mono text-stone-800 dark:text-stone-100">
                       {children}
                     </code>
                   ) : (
@@ -170,7 +170,7 @@ export default function WikiArticleViewer({
                   );
                 },
                 pre: ({ children }) => (
-                  <pre className="bg-muted p-4 rounded-lg overflow-x-auto mb-4 text-sm">
+                  <pre className="bg-stone-200 dark:bg-stone-800 p-4 rounded-lg overflow-x-auto mb-4 text-sm text-stone-800 dark:text-stone-100">
                     {children}
                   </pre>
                 ),
