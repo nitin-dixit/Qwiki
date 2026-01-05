@@ -43,8 +43,3 @@ next-env.d.ts
 # ide
 .vscode/
 .cursor/
-
-# misc
-.mcp.json
-WARP.md
-GIT_WORKFLOW_GUIDE.md
