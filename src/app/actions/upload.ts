@@ -1,9 +1,7 @@
 "use server";
 
-import { neonAuth } from "@neondatabase/neon-js/auth/next/server";
-
-// Server action to handle uploads (stub)
-// TODO: Replace placeholder logic with real Cloudinary (or other) upload
+import { stackServerApp } from "@/stack/server";
+import { put } from "@vercel/blob";
 
 export type UploadedFile = {
   url: string;
@@ -13,7 +11,7 @@ export type UploadedFile = {
 };
 
 export async function uploadFile(formData: FormData): Promise<UploadedFile> {
-  const { user } = await neonAuth();
+  const user = await stackServerApp.getUser();
   if (!user) {
     throw new Error("❌ Unauthorized");
   }
@@ -26,7 +24,7 @@ export async function uploadFile(formData: FormData): Promise<UploadedFile> {
 
   console.log(
     "📤 uploadFile called, received files:",
-    files.map((f) => ({ name: f.name, size: f.size, type: f.type })),
+    files.map((f) => ({ name: f.name, size: f.size, type: f.type }))
   );
 
   if (!file) {
@@ -41,14 +39,19 @@ export async function uploadFile(formData: FormData): Promise<UploadedFile> {
     throw new Error("File too large");
   }
 
-  // TODO: Insert Cloudinary upload code here.
-  // Example: upload using Cloudinary SDK on the server and return secure_url
-
-  // Return mock file info for now
-  return {
-    url: "/uploads/mock-image.jpg",
-    size: file.size,
-    type: file.type,
-    filename: file.name,
-  };
+  try {
+    const blob = await put(file.name, file, {
+      access: "public",
+      addRandomSuffix: true,
+    });
+    return {
+      url: blob.url ?? "",
+      size: file.size,
+      type: file.type,
+      filename: blob.pathname ?? file.name,
+    };
+  } catch (e) {
+    console.error("❌ Vercel Blob upload error", e);
+    throw new Error("Upload Fail");
+  }
 }
